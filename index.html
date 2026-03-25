@@ -188,24 +188,45 @@
 
         /* ==================== HOME PAGE ==================== */
         .hero {
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(255,248,240,0.5) 100%);
-            padding: 4rem 2rem;
+            background:
+                linear-gradient(135deg, rgba(93,64,55,0.82) 0%, rgba(62,39,35,0.75) 50%, rgba(46,125,50,0.6) 100%),
+                url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1600&q=80') center/cover no-repeat;
+            padding: 6rem 2rem;
             text-align: center;
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, #FEFCF8, transparent);
         }
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--primary-brown);
+            color: #FFFFFF;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            max-width: 800px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.92);
             max-width: 600px;
             margin: 0 auto 2rem;
             line-height: 1.8;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.25);
         }
 
         .hero-cta {
@@ -214,11 +235,45 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .btn-primary {
+            background: var(--accent-coral);
+            box-shadow: 0 4px 20px rgba(230,74,25,0.4);
+        }
+
+        .hero .btn-secondary {
+            border-color: white;
+            color: white;
+        }
+
+        .hero .btn-secondary:hover {
+            background: white;
+            color: var(--primary-brown);
         }
 
         .btn-large {
             padding: 1rem 2rem;
             font-size: 1.1rem;
+        }
+
+        /* Craft texture strip between sections */
+        .craft-divider {
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--accent-coral) 0px,
+                var(--accent-coral) 20px,
+                var(--primary-brown) 20px,
+                var(--primary-brown) 40px,
+                var(--accent-green) 40px,
+                var(--accent-green) 60px,
+                var(--border-gray) 60px,
+                var(--border-gray) 80px
+            );
+            opacity: 0.6;
         }
 
         .value-props {
@@ -236,7 +291,18 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             text-align: center;
+            border-top: 4px solid var(--accent-coral);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .value-prop:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-prop:nth-child(2) { border-top-color: var(--accent-green); }
+        .value-prop:nth-child(3) { border-top-color: var(--primary-brown); }
+        .value-prop:nth-child(4) { border-top-color: #FFA000; }
 
         .value-prop-icon {
             font-size: 2.5rem;
@@ -246,6 +312,84 @@
         .value-prop h3 {
             color: var(--primary-brown);
             margin-bottom: 0.5rem;
+        }
+
+        /* How it works section */
+        .how-it-works {
+            background:
+                linear-gradient(rgba(255,248,240,0.95), rgba(255,248,240,0.95)),
+                url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=60') center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            color: var(--primary-brown);
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-step {
+            position: relative;
+        }
+
+        .how-step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-coral);
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .how-step h3 {
+            color: var(--primary-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .how-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Community banner */
+        .community-banner {
+            background:
+                linear-gradient(135deg, rgba(46,125,50,0.85), rgba(93,64,55,0.85)),
+                url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=70') center/cover;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .community-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .community-banner p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.92;
+        }
+
+        .community-banner .btn-primary {
+            box-shadow: 0 4px 20px rgba(230,74,25,0.4);
         }
 
         .value-prop p {
@@ -1761,33 +1905,68 @@
             </div>
         </div>
 
+        <div class="craft-divider"></div>
+
         <div class="value-props">
             <div class="value-prop">
                 <div class="value-prop-icon">💰</div>
-                <h3>2% Fee</h3>
-                <p>The lowest platform fee in the industry. Keep more of your earnings.</p>
+                <h3>Only 2% Fee</h3>
+                <p>The lowest platform fee around. Keep more of what you earn from your craft.</p>
             </div>
             <div class="value-prop">
                 <div class="value-prop-icon">🏘️</div>
                 <h3>Local First</h3>
-                <p>Support artisans in your community. Know who made what you buy.</p>
+                <p>Support artisans in your neighborhood. Know the hands behind every piece.</p>
             </div>
             <div class="value-prop">
                 <div class="value-prop-icon">🔒</div>
                 <h3>Secure Payments</h3>
-                <p>Stripe-powered transactions. Protected for both buyers and sellers.</p>
+                <p>Stripe-powered transactions. Safe and protected for buyers and sellers.</p>
             </div>
             <div class="value-prop">
                 <div class="value-prop-icon">👥</div>
-                <h3>Community Owned</h3>
-                <p>Built by and for makers. Your feedback shapes our future.</p>
+                <h3>Community Driven</h3>
+                <p>Built by makers, for makers. Your voice shapes what we build next.</p>
             </div>
         </div>
+
+        <div class="craft-divider"></div>
+
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-number">1</div>
+                    <h3>Create Your Shop</h3>
+                    <p>Sign up for free and set up your maker profile in minutes. Tell the community about yourself and your craft.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-number">2</div>
+                    <h3>List Your Creations</h3>
+                    <p>Upload photos, write descriptions, and set your prices. Show off what makes your work special.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-number">3</div>
+                    <h3>Get Paid</h3>
+                    <p>Buyers pay securely online. You get paid directly to your account, minus just a 2% platform fee.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="craft-divider"></div>
 
         <div class="categories-section">
             <h2>Shop by Category</h2>
             <div class="categories-grid" id="homeCategoriesGrid"></div>
         </div>
+
+        <div class="community-banner">
+            <h2>Join a Growing Community of Local Makers</h2>
+            <p>Whether you knit, paint, woodwork, or bake — there's a place for your craft here. Connect with neighbors who appreciate handmade.</p>
+            <button class="btn btn-primary btn-large" onclick="showPage('sell')">Start Selling Today</button>
+        </div>
+
+        <div class="craft-divider"></div>
 
         <div class="featured-section">
             <h2>Featured Listings</h2>
