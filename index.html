@@ -49,12 +49,16 @@
         }
 
         .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-brown);
+            display: flex;
+            align-items: center;
             text-decoration: none;
             cursor: pointer;
-            letter-spacing: -0.5px;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         .navbar-nav {
@@ -411,22 +415,41 @@
         }
 
         .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            display: flex;
             gap: 1rem;
             margin-bottom: 3rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-gray) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .categories-grid::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .categories-grid::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .categories-grid::-webkit-scrollbar-thumb {
+            background: var(--border-gray);
+            border-radius: 4px;
         }
 
         .category-chip {
             background: white;
             border: 2px solid var(--border-gray);
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
+            padding: 1rem 1.25rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
             color: var(--text-dark);
+            flex: 0 0 auto;
+            min-width: 100px;
         }
 
         .category-chip:hover {
@@ -437,14 +460,15 @@
         }
 
         .category-chip-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
         }
 
         .category-chip-label {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--primary-brown);
+            white-space: nowrap;
         }
 
         .featured-section {
@@ -518,8 +542,11 @@
         .category-pills {
             display: flex;
             gap: 0.75rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: center;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
         }
 
         .category-pill {
@@ -1845,8 +1872,8 @@
         }
 
         @media (max-width: 480px) {
-            .navbar-brand {
-                font-size: 1.2rem;
+            .navbar-logo {
+                height: 38px;
             }
 
             .navbar-nav {
@@ -1862,7 +1889,7 @@
             }
 
             .categories-grid {
-                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
             }
         }
     </style>
@@ -1870,7 +1897,9 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="navbar-brand" onclick="showPage('home')">NeighborMade</div>
+        <div class="navbar-brand" onclick="showPage('home')">
+            <img src="/uploads/logo.png" alt="NeighborMade" class="navbar-logo">
+        </div>
         <div class="navbar-nav">
             <a class="nav-link" onclick="showPage('browse')">Browse</a>
             <a class="nav-link" id="messagesLink" onclick="showPage('messages')" style="display:none;">Messages</a>
