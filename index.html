@@ -1942,6 +1942,7 @@
                 🛒 Cart <span id="cartCount" style="background:var(--accent-coral);color:white;padding:0.2rem 0.5rem;border-radius:50%;margin-left:0.25rem;font-size:0.75rem;">0</span>
             </button>
             <button id="loginBtn" class="btn btn-secondary" onclick="showAuthOverlay()" style="display:none;">Log In</button>
+                <button class="btn btn-primary" id="signupNavBtn" onclick="showAuthOverlay(); setTimeout(() => switchAuthTab('signup'), 100)" style="background: var(--accent-coral); border: none; padding: 8px 20px; border-radius: 8px; color: white; font-weight: 600; cursor: pointer;">Sign Up</button>
             <button id="sellBtn" class="btn btn-primary" onclick="showPage('sell')" style="display:none;">+ Sell</button>
             <div id="userMenu" style="display:none; position:relative;">
                 <button class="avatar-btn" id="avatarBtn" onclick="toggleUserMenu()">👤</button>
@@ -1960,7 +1961,7 @@
     <div id="home" class="page active">
         <div class="hero">
             <h1>Discover one-of-a-kind crafts from people right in your neighborhood</h1>
-            <p>Support local makers. Buy authentic. Sell for just a 2% fee.</p>
+            <p>Support local makers. Buy authentic. Our 2% fee only covers website costs — any additional revenue is donated to local charities.</p>
             <div class="hero-cta">
                 <button class="btn btn-primary btn-large" onclick="showPage('browse')">Start Shopping</button>
                 <button class="btn btn-secondary btn-large" onclick="showPage('sell')">Start Selling</button>
@@ -1975,7 +1976,7 @@
             <div class="value-prop">
                 <div class="value-prop-icon">💰</div>
                 <h3>Only 2% Fee</h3>
-                <p>The lowest platform fee around. Keep more of what you earn from your craft.</p>
+                <p>Our 2% fee only covers the cost of running this website. We are not-for-profit — any additional revenue is donated to local charities.</p>
             </div>
             <div class="value-prop">
                 <div class="value-prop-icon">🏘️</div>
@@ -2444,6 +2445,7 @@
 
         function updateUIForAuth() {
             const loginBtn = document.getElementById('loginBtn');
+        const signupNavBtn = document.getElementById('signupNavBtn');
             const sellBtn = document.getElementById('sellBtn');
             const userMenu = document.getElementById('userMenu');
             const cartBtn = document.getElementById('cartBtn');
@@ -2451,6 +2453,7 @@
 
             if (currentUser) {
                 loginBtn.style.display = 'none';
+            signupNavBtn.style.display = 'none';
                 sellBtn.style.display = 'block';
                 userMenu.style.display = 'block';
                 cartBtn.style.display = 'block';
@@ -2460,6 +2463,7 @@
                 document.getElementById('avatarBtn').textContent = initials.toUpperCase();
             } else {
                 loginBtn.style.display = 'block';
+            signupNavBtn.style.display = 'block';
                 sellBtn.style.display = 'none';
                 userMenu.style.display = 'none';
                 cartBtn.style.display = 'none';
