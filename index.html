@@ -36,8 +36,8 @@
 
         /* ==================== NAVBAR ==================== */
         .navbar {
-            background: white;
-            border-bottom: 1px solid var(--border-gray);
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 60%, #4E342E 100%);
+            border-bottom: 3px solid var(--accent-coral);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -45,16 +45,17 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
         }
 
         .navbar-brand {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-brown);
+            color: var(--cream);
             text-decoration: none;
             cursor: pointer;
             letter-spacing: -0.5px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
 
         .site-logo-section {
@@ -81,7 +82,7 @@
         }
 
         .nav-link {
-            color: var(--text-light);
+            color: #ECDCC8;
             text-decoration: none;
             font-weight: 500;
             cursor: pointer;
@@ -89,7 +90,7 @@
         }
 
         .nav-link:hover {
-            color: var(--accent-coral);
+            color: #FFFFFF;
         }
 
         .navbar-auth {
@@ -121,13 +122,13 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--primary-brown);
-            border: 2px solid var(--primary-brown);
+            color: var(--cream);
+            border: 2px solid var(--cream);
         }
 
         .btn-secondary:hover {
-            background: var(--primary-brown);
-            color: white;
+            background: var(--cream);
+            color: var(--primary-brown);
         }
 
         .avatar-btn {
