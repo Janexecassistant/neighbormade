@@ -49,16 +49,25 @@
         }
 
         .navbar-brand {
-            display: flex;
-            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-brown);
             text-decoration: none;
             cursor: pointer;
+            letter-spacing: -0.5px;
         }
 
-        .navbar-logo {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
+        .site-logo-section {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1f14 50%, #1a1a1a 100%);
+        }
+
+        .site-logo-section img {
+            max-width: 500px;
+            width: 90%;
+            height: auto;
         }
 
         .navbar-nav {
@@ -415,41 +424,22 @@
         }
 
         .categories-grid {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
             margin-bottom: 3rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border-gray) transparent;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .categories-grid::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .categories-grid::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .categories-grid::-webkit-scrollbar-thumb {
-            background: var(--border-gray);
-            border-radius: 4px;
         }
 
         .category-chip {
             background: white;
             border: 2px solid var(--border-gray);
             border-radius: var(--radius-lg);
-            padding: 1rem 1.25rem;
+            padding: 1rem 0.75rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
             color: var(--text-dark);
-            flex: 0 0 auto;
-            min-width: 100px;
         }
 
         .category-chip:hover {
@@ -1872,8 +1862,8 @@
         }
 
         @media (max-width: 480px) {
-            .navbar-logo {
-                height: 38px;
+            .navbar-brand {
+                font-size: 1.2rem;
             }
 
             .navbar-nav {
@@ -1889,7 +1879,12 @@
             }
 
             .categories-grid {
-                gap: 0.75rem;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0.5rem;
+            }
+
+            .site-logo-section img {
+                max-width: 350px;
             }
         }
     </style>
@@ -1897,9 +1892,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="navbar-brand" onclick="showPage('home')">
-            <img src="/uploads/logo.png" alt="NeighborMade" class="navbar-logo">
-        </div>
+        <div class="navbar-brand" onclick="showPage('home')">NeighborMade</div>
         <div class="navbar-nav">
             <a class="nav-link" onclick="showPage('browse')">Browse</a>
             <a class="nav-link" id="messagesLink" onclick="showPage('messages')" style="display:none;">Messages</a>
@@ -1934,7 +1927,9 @@
             </div>
         </div>
 
-        <div class="craft-divider"></div>
+        <div class="site-logo-section">
+            <img src="/uploads/logo.png" alt="NeighborMade - Shop Local, Buy Handmade, Build Community">
+        </div>
 
         <div class="value-props">
             <div class="value-prop">
